@@ -61,14 +61,34 @@ public class MainActivity extends Activity {
 			private String checkInfo() {
 				// TODO Auto-generated method stub
 				if(name.getText().toString()==null||name.getText().toString().equals("")){
-					return"";
+					return"用户名不能为空";
 				}
 				if(psd.getText().toString().trim().length()<6||psd.getText().toString().trim().length()>15){
-					
+					return"密码位数应该在6~15之间";
+				}
+				if(!psd.getText().toString().equals(psd2.getText().toString())){
+					return"两次输入的结果不一致";
 				}
 				return null;
 			}
 		});
+		cityBtn.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				Intent intent=new Intent (MainActivity.this,ChooseCityActivity.class);
+				startActivityForResult(intent,0);
+			}
+		});
+	}
+	public void onActivityResult(int requestCode,int resultCode,Intent intent){
+		if(requestCode==0&&resultCode==0){
+			Bundle data=intent.getExtras();
+			String resultCity=data.getString("city");
+			city.setText(resultCity);
+		}
 	}
 
 	@Override
