@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -22,6 +23,13 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		registerBtn=(Button) this.findViewById(R.id.registerBtn);
+		cityBtn=(Button) this.findViewById(R.id.cityBtn);
+		male=(Button) this.findViewById(R.id.male);
+		female=(Button) this.findViewById(R.id.female);
+		name=(EditText) this.findViewById(R.id.name);
+		psd=(EditText) this.findViewById(R.id.psd);
+		psd2=(EditText) this.findViewById(R.id.psd2);
+		city=(EditText) this.findViewById(R.id.city);
 		
 		registerBtn.setOnClickListener(new View.OnClickListener() {
 			
@@ -72,7 +80,7 @@ public class MainActivity extends Activity {
 				return null;
 			}
 		});
-		cityBtn.setOnClickListener(new View.OnClickListener() {
+		cityBtn.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
